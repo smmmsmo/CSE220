@@ -1,0 +1,45 @@
+=============================================================================
+  JAVA NULL POINTER SAFETY — KEY CONCEPTS
+=============================================================================
+
+## The Crucial Distinction: Assignment vs Dereferencing
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                                                                       │
+│  Assigning null to a variable     →  ✔ SAFE & LEGAL                 │
+│  Dereferencing a null variable    →  ❌ CRASH (NullPointerException) │
+│                                                                       │
+└─────────────────────────────────────────────────────────────────────┘
+
+### Examples
+
+✅ LEGAL: Assignment
+   fastptr = null;
+
+❌ ILLEGAL: Dereferencing null
+   fastptr = null.next;
+
+### The Real Danger
+   Dereferencing a null, NOT becoming null
+
+=============================================================================
+  TWO-POINTER ALGORITHM — MIDDLE ELEMENT DETECTION
+=============================================================================
+
+### Stopping Condition
+   When fast can no longer move two steps, slow is at the middle.
+
+### Two Cases Covered
+
+   Case 1: Odd-length list
+   └─> fast lands on the last node (fast.next == null)
+
+   Case 2: Even-length list
+   └─> fast becomes null (fast == null)
+
+### Why It Works
+   - slow moves 1 step at a time
+   - fast moves 2 steps at a time
+   - When fast reaches the end, slow is exactly halfway
+
+=============================================================================
