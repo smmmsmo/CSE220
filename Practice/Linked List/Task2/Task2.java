@@ -25,13 +25,13 @@ public class Task2 {
         return prev; // New head of the reversed list
     }
 
-    static Node reverseLinkedLNodeRecursive(Node head) {
+    static Node reverseLinkedListRecursive(Node head) {
 
         if (head == null || head.next == null) {
             return head;
         }
 
-        Node newHead = reverseLinkedLNodeRecursive(head.next);
+        Node newHead = reverseLinkedListRecursive(head.next);
 
         head.next.next = head;
         head.next = null;
@@ -56,7 +56,7 @@ public class Task2 {
         head.next.next.next = new Node(4);
         head.next.next.next.next = new Node(5);
 
-        head = reverseLinkedLNodeRecursive(head);
+        head = reverseLinkedListRecursive(head);
         printLinkedList(head);
     }
 
